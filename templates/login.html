@@ -1,0 +1,23 @@
+ {% extends "base.html" %} {% block content %}
+
+<div class="box">
+  <h1>LOGIN</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p> {{ messages }} </p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <form method ="post">
+    <input type="email" name="email" placeholder="Email" class="custom-input" required="required" />
+        <input type="password" name="password" placeholder="Password" class="custom-input" required="required" />
+      <p> Forget password ? </p>
+    <button type = "submit" class="btn btn-primary btn-block btn-large">LOGIN</button><br><br>
+      <p>Don't have an account? <a href="{{ url_for('register') }}" >Register here</a></p>
+  </form>
+  </div>
+
+{% endblock %}
+
+
