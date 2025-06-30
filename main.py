@@ -138,7 +138,7 @@ def book():
 @login_required
 def menu():
     print(current_user.name)
-    return render_template("menu.html", name=current_user.name, logged_in=True)
+    return render_template("menutry.html", name=current_user.name, logged_in=True)
 
 @app.route('/about')
 @login_required
@@ -162,4 +162,4 @@ def download():
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
