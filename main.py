@@ -4,11 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
-from flask import redirect, url_for
 import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
+
 
 # CREATE DATABASE
 
@@ -125,10 +125,11 @@ def book():
             email=request.form.get('email'),
             date=request.form.get('date')
         )
-        if Book:
-
+        if not all([request.form.get('name'), request.form.get('number'), request.form.get('email'),
+                    request.form.get('date')]):
             flash("Missing information. Please fill in all the fields!")
             return redirect(url_for('book'))
+
         db.session.add(new_book)
         db.session.commit()
         return redirect(url_for('menu'))
