@@ -1,23 +1,15 @@
-{% extends "base.html" %}
-{% block content %}
-
-<div class="box">
-  <h1>MOTO-Dx</h1>
-  <!-- Hide the Login/Registration buttons for logged-in users -->
-
-  {% if not logged_in: %}
-  <a href="{{ url_for('login') }}" class="btn btn-primary btn-block btn-large"
-    >Login</a
-  >
-  <a
-    href="{{ url_for('register') }}"
-    class="btn btn-secondary btn-block btn-large"
-    >Register</a
-  >
-  <!-- Feedback for logged-in users -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+</head>
+<body>
+  <h1>Welcome to Your Flask Site!</h1>
+  {% if logged_in %}
+    <p>You are logged in!</p>
+    <a href="{{ url_for('logout') }}">Logout</a>
   {% else %}
-    <p> (you are already logged in) </p>
+    <p>Please <a href="{{ url_for('login') }}">Login</a> or <a href="{{ url_for('register') }}">Register</a>.</p>
   {% endif %}
-</div>
-
-{% endblock %}
+</body>
+</html>

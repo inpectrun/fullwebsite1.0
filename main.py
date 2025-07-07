@@ -7,7 +7,7 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, cur
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
+app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY', 'cedricdarren123456789ceniza')
 
 
 # CREATE DATABASE
