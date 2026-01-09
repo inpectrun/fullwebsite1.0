@@ -1004,4 +1004,18 @@ a:focus {
 .footer_section .footer-info p a {
   color: inherit;
 }
-/*# sourceMappingURL=style.css.map */
+
+
+.bg-box {
+    with:8%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg-box img {
+    with: 80%
+    height: 100%
+    object-fit: cover;
+    object-position: center;
+
+}
